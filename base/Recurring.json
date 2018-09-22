@@ -1,0 +1,168 @@
+{
+  "$id": "https://github.com/cognition-app/schema/base/Recurring",
+  "$type": "object",
+  "properties": {
+    "dayOfWeek": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "https://github.com/cognition-app/schema/base/NameOfDay"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "$ref": "https://github.com/cognition-app/schema/base/NameOfDay"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dayOfMonth": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "*"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dayOfYear": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "*"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "weekOfMonth": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "*"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "weekOfYear": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "*"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "monthOfYear": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "https://github.com/cognition-app/schema/base/NameOfMonth"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "$ref": "https://github.com/cognition-app/schema/base/NameOfMonth"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

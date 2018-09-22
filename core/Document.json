@@ -1,0 +1,43 @@
+{
+  "$id": "https://github.com/cognition-app/schema/core/Document",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "The json schema defining a cognition document.",
+  "allOf": [
+    {
+      "$ref": "https://github.com/cognition-app/schema/base/Implementation"
+    },
+    {
+      "$ref": "https://github.com/cognition-app/schema/base/Identifiable"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "pertinence": {
+          "$ref": "https://github.com/cognition-app/schema/base/Pertinence",
+          "description": "Date/time(s) this document is pertinent. Deadline, milestones, event date, reminders, etc."
+        },
+        "contentType": {
+          "$ref": "https://github.com/cognition-app/schema/base/ContentType",
+          "description": "Content MIME type of Document for content decoding"
+        },
+        "content": {
+          "type": "string",
+          "description": "Full document serialized as string"
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "$context": "https://github.com/cognition-app/schema/core/Document",
+      "name": "Dummy",
+      "version": "1.0.0",
+      "description": "A pretty useless document",
+      "pertinence": {
+        "dayOfYear": "*"
+      },
+      "contentType": "application/text",
+      "content": "I told you it was useless"
+    }
+  ]
+}

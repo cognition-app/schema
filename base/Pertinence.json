@@ -1,0 +1,18 @@
+{
+  "$id": "https://github.com/cognition-app/schema/base/Pertinence",
+  "$type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "start": {
+        "$ref": "https://github.com/cognition-app/schema/base/DateTime"
+      },
+      "end": {
+        "$ref": "https://github.com/cognition-app/schema/base/DateTime"
+      },
+      "recurring": {
+        "$ref": "https://github.com/cognition-app/schema/base/Recurring"
+      }
+    }
+  }
+}

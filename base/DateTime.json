@@ -1,0 +1,17 @@
+{
+  "$id": "https://github.com/cognition-app/schema/base/DateTime",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "A JSON Date Time object.",
+  "type": "string",
+  "oneOf": [
+    {
+      "format": "date-time"
+    },
+    {
+      "format": "date"
+    }
+  ],
+  "examples": [
+    "2018-09-22T21:44:56.991Z"
+  ]
+}
