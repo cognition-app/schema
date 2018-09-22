@@ -1,0 +1,25 @@
+{
+  "name": "cognition-schema",
+  "version": "1.0.0",
+  "description": "Official schema definitions for cognition elements",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "z-schema base/*.json core/*.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cognition-app/schema.git"
+  },
+  "author": "Daniel J. B. Clarke <u8sand@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/cognition-app/schema/issues"
+  },
+  "homepage": "https://github.com/cognition-app/schema#readme",
+  "devDependencies": {
+    "z-schema": "^3.23.0"
+  }
+}
