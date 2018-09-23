@@ -1,9 +1,9 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/JSONPointer",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/JSONPointer.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "A JSON Pointer (the same type of object used on a `$ref`)",
   "type": "string",
   "examples": [
-    "https://github.com/cognition/schema/core/View"
+    "https://github.com/cognition/schema/core/View.json"
   ]
 }

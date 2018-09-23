@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/DateTime",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/DateTime.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "A JSON Date Time object.",
   "type": "string",
   "oneOf": [

@@ -1,18 +1,19 @@
 {
-  "$id": "https://github.com/cognition-app/schema/core/Provider",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Provider.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "The json schema for defining a cognition provider.",
+  "type": "object",
   "allOf": [
     {
-      "$ref": "https://github.com/cognition-app/schema/Implementation"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
     },
     {
-      "$ref": "https://github.com/cognition-app/schema/Identifiable"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json"
     }
   ],
   "examples": [
     {
-      "$context": "https://github.com/cognition-app/schema/core/Provider",
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Provider.json",
       "name": "Dummy",
       "version": "1.0.0",
       "description": "A provider which doesn't do much beyond show how a provider might work."

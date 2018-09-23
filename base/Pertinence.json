@@ -1,18 +1,30 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/Pertinence",
-  "$type": "array",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Pertinence.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "A date-time object with support for recurring events",
+  "type": "array",
   "items": {
     "type": "object",
     "properties": {
       "start": {
-        "$ref": "https://github.com/cognition-app/schema/base/DateTime"
+        "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/DateTime.json"
       },
       "end": {
-        "$ref": "https://github.com/cognition-app/schema/base/DateTime"
+        "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/DateTime.json"
       },
       "recurring": {
-        "$ref": "https://github.com/cognition-app/schema/base/Recurring"
+        "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Recurring.json"
       }
     }
-  }
+  },
+  "examples": [
+    {
+      "start": "2018-09-22T21:44:56.991Z",
+      "end": "2018-09-22T21:44:56.991Z",
+      "recurring": {
+        "monthOfYear": "dec",
+        "dayOfMonth": 25
+      }
+    }
+  ]
 }

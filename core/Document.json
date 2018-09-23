@@ -1,23 +1,24 @@
 {
-  "$id": "https://github.com/cognition-app/schema/core/Document",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "The json schema defining a cognition document.",
+  "type": "object",
   "allOf": [
     {
-      "$ref": "https://github.com/cognition-app/schema/base/Implementation"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
     },
     {
-      "$ref": "https://github.com/cognition-app/schema/base/Identifiable"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json"
     },
     {
       "type": "object",
       "properties": {
         "pertinence": {
-          "$ref": "https://github.com/cognition-app/schema/base/Pertinence",
+          "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Pertinence.json",
           "description": "Date/time(s) this document is pertinent. Deadline, milestones, event date, reminders, etc."
         },
         "contentType": {
-          "$ref": "https://github.com/cognition-app/schema/base/ContentType",
+          "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/ContentType.json",
           "description": "Content MIME type of Document for content decoding"
         },
         "content": {
@@ -29,7 +30,7 @@
   ],
   "examples": [
     {
-      "$context": "https://github.com/cognition-app/schema/core/Document",
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json",
       "name": "Dummy",
       "version": "1.0.0",
       "description": "A pretty useless document",

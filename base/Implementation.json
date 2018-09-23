@@ -1,15 +1,20 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/Implementation",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Custom constraint on implementations to reference their abstract type.",
   "type": "object",
   "properties": {
     "$context": {
-      "$ref": "https://github.com/cognition-app/schema/base/JSONPointer",
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/JSONPointer.json",
       "description": "A reference to the base schema prefix for which this document implements"
     }
   },
   "required": [
     "$context"
+  ],
+  "examples": [
+    {
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json"
+    }
   ]
 }

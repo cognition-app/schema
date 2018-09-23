@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/Identifiable",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Anything that can be identified in a reasonable way.",
   "type": "object",
   "properties": {
@@ -41,5 +41,18 @@
   "required": [
     "name",
     "supportedDocs"
+  ],
+  "examples": [
+    {
+      "name": "Dummy",
+      "version": "1.0.0",
+      "description": "Dummy description",
+      "tags": [
+        "dummy"
+      ],
+      "supportedDocs": [
+        "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json"
+      ]
+    }
   ]
 }

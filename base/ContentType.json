@@ -1,8 +1,8 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/ContentType",
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/ContentType.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "A JSON ContentType object.",
-  "type": "object",
+  "type": "string",
   "examples": [
     "application/json"
   ]

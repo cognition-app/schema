@@ -1,6 +1,8 @@
 {
-  "$id": "https://github.com/cognition-app/schema/base/Recurring",
-  "$type": "object",
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Recurring.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Recurring data structure for Pertinence",
+  "type": "object",
   "properties": {
     "dayOfWeek": {
       "oneOf": [
@@ -8,7 +10,7 @@
           "type": "number"
         },
         {
-          "$ref": "https://github.com/cognition-app/schema/base/NameOfDay"
+          "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/NameOfDay.json"
         },
         {
           "type": "array",
@@ -18,7 +20,7 @@
                 "type": "number"
               },
               {
-                "$ref": "https://github.com/cognition-app/schema/base/NameOfDay"
+                "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/NameOfDay.json"
               }
             ]
           }
@@ -147,7 +149,7 @@
           "type": "number"
         },
         {
-          "$ref": "https://github.com/cognition-app/schema/base/NameOfMonth"
+          "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/NameOfMonth.json"
         },
         {
           "type": "array",
@@ -157,12 +159,18 @@
                 "type": "number"
               },
               {
-                "$ref": "https://github.com/cognition-app/schema/base/NameOfMonth"
+                "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/NameOfMonth.json"
               }
             ]
           }
         }
       ]
     }
-  }
+  },
+  "examples": [
+    {
+      "monthOfYear": "dec",
+      "dayOfMonth": 25
+    }
+  ]
 }
