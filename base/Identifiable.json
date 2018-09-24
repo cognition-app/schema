@@ -39,8 +39,7 @@
     }
   },
   "required": [
-    "name",
-    "supportedDocs"
+    "name"
   ],
   "examples": [
     {
@@ -49,9 +48,6 @@
       "description": "Dummy description",
       "tags": [
         "dummy"
-      ],
-      "supportedDocs": [
-        "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json"
       ]
     }
   ]

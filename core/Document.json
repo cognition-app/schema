@@ -2,7 +2,6 @@
   "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "The json schema defining a cognition document.",
-  "type": "object",
   "allOf": [
     {
       "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
@@ -34,9 +33,13 @@
       "name": "Dummy",
       "version": "1.0.0",
       "description": "A pretty useless document",
-      "pertinence": {
-        "dayOfYear": "*"
-      },
+      "pertinence": [
+        {
+          "recurring": {
+            "dayOfYear": "*"
+          }
+        }
+      ],
       "contentType": "application/text",
       "content": "I told you it was useless"
     }

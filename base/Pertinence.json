@@ -18,13 +18,15 @@
     }
   },
   "examples": [
-    {
-      "start": "2018-09-22T21:44:56.991Z",
-      "end": "2018-09-22T21:44:56.991Z",
-      "recurring": {
-        "monthOfYear": "dec",
-        "dayOfMonth": 25
+    [
+      {
+        "start": "2018-09-22T21:44:56.991Z",
+        "end": "2018-09-22T21:44:56.991Z",
+        "recurring": {
+          "monthOfYear": "dec",
+          "dayOfMonth": 25
+        }
       }
-    }
+    ]
   ]
 }
