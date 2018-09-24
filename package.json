@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "z-schema base/*.json core/*.json"
+    "test": "node test.js core/**/*.json base/**/*.json"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cognition-app/schema#readme",
   "devDependencies": {
+    "glob": "^7.1.3",
     "z-schema": "^3.23.0"
   }
 }
