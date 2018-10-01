@@ -1,0 +1,20 @@
+{
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/App.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The json schema for defining a cognition application.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Plugin.json"
+    }
+  ],
+  "examples": [
+    {
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/App.json",
+      "name": "Dummy",
+      "version": "1.0.0",
+      "description": "An app which doesn't do much beyond show how an app might work.",
+      "entrypoint": "index.js"
+    }
+  ]
+}
