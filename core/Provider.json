@@ -5,10 +5,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
-    },
-    {
-      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json"
     }
   ],
   "examples": [
