@@ -1,0 +1,35 @@
+{
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The json schema for defining a cognition plugin.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "entrypoint": {
+          "type": "string",
+          "description": "The location of the javascript entrypoint to fetch and execute",
+          "examples": [
+            "index.js"
+          ]
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
+      "name": "Dummy",
+      "version": "1.0.0",
+      "description": "An plugin which doesn't do much beyond show how an plugin might work.",
+      "entrypoint": "index.js"
+    }
+  ]
+}
