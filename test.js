@@ -1,76 +1,25 @@
-var ZSchema = require('z-schema')
-var glob = require('glob')
-var https = require('https')
-var http = require('http')
-var fs = require('fs')
+import assert from 'assert'
+import fetch from 'fetch-node'
+import fs from 'fs'
+import glob from 'glob'
+import ZSchema from 'z-schema'
 
-function validateWithAutomaticDownloads(validator, data, schema, callback) {
-  return new Promise(function (resolve, reject) {
-    var lastResult
-
-    function finish() {
-      var err = validator.getLastErrors()
-      if (err)
-        reject(err)
-      else
-        resolve(lastResult)
-    }
-
-    function validate() {
-      lastResult = validator.validate(data, schema)
-      var missingReferences = validator.getMissingRemoteReferences()
-      if (missingReferences.length > 0) {
-        var finished = 0
-        missingReferences.forEach(function (url) {
-          var request
-          if(/https:\/\/.+/.test(url)) {
-            request = https.request
-          } else if(/http:\/\/.+/.test(url)) {
-            request = http.request
-          } else {
-            reject(new Error('Unknown protocol'))
-          }
-          console.log('fetching ' + url)
-          var req = request(url, function (res) {
-            var body = ""
-            res.setEncoding('utf8')
-            res.on("data", function (chunk) {
-              body += chunk
-            })
-            res.on("end", function () {
-              console.log('fetched ' + url)
-              validator.setRemoteReference(url, JSON.parse(body))
-              finished++
-              if (finished === missingReferences.length) {
-                validate()
-              }
-            })
-          })
-          req.end()
-        })
-      } else {
-        finish()
+function validateWithDownload(validator, data, schema) {
+  while(true) {
+    const lastResult = validator.validate(data, schema)
+    const missingReferences = validator.getMissingRemoteReferences()
+    if (missingReferences.length === 0) {
+      return lastResult
+    } else {
+      for(const url of missingReferences) {
+        validator.setRemoteReference(
+          JSON.parse(
+            fetch(url)
+          )
+        )
       }
     }
-    validate()
-  })
-}
-
-function get_data_and_schema(file) {
-  return new Promise(function (resolve, reject) {
-    fs.readFile(file, 'utf-8', function (err, rawSchema) {
-      if (err) {
-        reject(err)
-      } else {
-        var schema = JSON.parse(rawSchema)
-        var data = schema['examples']
-        resolve({
-          data: data,
-          schema: schema,
-        })
-      }
-    })
-  })
+  }
 }
 
 function globPromise(arg, opts) {
@@ -85,40 +34,33 @@ function globPromise(arg, opts) {
   })
 }
 
-var validator = new ZSchema()
+for(const arg of ["core/**/*.json", "base/**/*.json"]) {
+  for(const file of glob.sync(arg)) {
+    describe(file, function() {
+      let validator, schema, examples
 
-process.argv
-  .slice(2)
-  .map(globPromise)
-  .reduce(function(promise, filePromise) {
-    return promise.then(function() {
-      return filePromise
-    }).then(function (files) {
-      return files.reduce(function(promise, file) {
-        return promise.then(function() {
-          return get_data_and_schema(file)
-        }).then(function(data_schema) {
-          if (data_schema.data === undefined) {
-            return Promise.reject(new Error('No examples defined'))
+      before(function() {
+        validator = new ZSchema()
+        schema = JSON.parse(fs.readFileSync(file, 'utf8'))
+        examples = schema['examples']
+      })
+
+      it('validates', function() {
+        validator.validateSchema(schema)
+      })
+
+      it('examples validate', function() {
+        if(examples !== undefined && examples.length >= 1) {
+          for (const example of examples) {
+            assert.equal(
+              validateWithDownload(validator, example, schema),
+              true
+            )
           }
-          return data_schema.data.reduce(function(promise, example) {
-            return promise.then(function() {
-              return validateWithAutomaticDownloads(
-                validator,
-                example,
-                data_schema.schema,
-              )
-            })
-          }, Promise.resolve([]))
-        }).then(function(res) {
-          if (res)
-            console.log('[ SUCCESS ] ' + file + ': ' + res)
-          else
-            console.log('[ FAIL ] ' + file + ': ' + res)
-        }).catch(function (err) {
-          console.error('[ ERROR ] ' + file + ':')
-          console.error(err)
-        })
-      }, Promise.resolve([]))
+        } else {
+          assert.fail('no examples defined')
+        }
+      })
     })
-  }, Promise.resolve([]))
+  }
+}
