@@ -1,0 +1,58 @@
+{
+  "$id": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Registry.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The json schema defining a cognition registry.",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Implementation.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Identifiable.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "sha256": {
+                    "type": "string",
+                    "description": "Package sha256 integrity checksum"
+                  }
+                },
+                "required": [
+                  "sha256"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Registry.json",
+      "name": "Dummy Repo",
+      "version": "1.0.0",
+      "description": "A repo which doesn't do much beyond show how a repo might work.",
+      "objects": [
+        {
+          "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
+          "name": "Dummy",
+          "version": "1.0.0",
+          "description": "An plugin which doesn't do much beyond show how an plugin might work.",
+          "entrypoint": "index.js",
+          "sha256": "7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"
+        }
+      ]
+    }
+  ]
+}
