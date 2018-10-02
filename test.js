@@ -1,10 +1,10 @@
 import assert from 'assert'
-import fetch from 'fetch-node'
+import fetch from 'node-fetch'
 import fs from 'fs'
 import glob from 'glob'
 import ZSchema from 'z-schema'
 
-function validateWithDownload(validator, data, schema) {
+async function validateWithDownload(validator, data, schema) {
   while(true) {
     const lastResult = validator.validate(data, schema)
     const missingReferences = validator.getMissingRemoteReferences()
@@ -12,10 +12,10 @@ function validateWithDownload(validator, data, schema) {
       return lastResult
     } else {
       for(const url of missingReferences) {
+        const response = await fetch(url)
         validator.setRemoteReference(
-          JSON.parse(
-            fetch(url)
-          )
+          url,
+          response.json()
         )
       }
     }
@@ -37,11 +37,11 @@ for(const arg of ["core/**/*.json", "base/**/*.json"]) {
         validator.validateSchema(schema)
       })
 
-      it('examples validate', function() {
+      it('examples validate', async () => {
         if(examples !== undefined && examples.length >= 1) {
           for (const example of examples) {
             assert.equal(
-              validateWithDownload(validator, example, schema),
+              await validateWithDownload(validator, example, schema),
               true
             )
           }
