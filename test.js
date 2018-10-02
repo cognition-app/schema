@@ -22,18 +22,6 @@ function validateWithDownload(validator, data, schema) {
   }
 }
 
-function globPromise(arg, opts) {
-  return new Promise(function(resolve, reject) {
-    glob(arg, opts, function(err, files) {
-      if(err) {
-        reject()
-      } else {
-        resolve(files)
-      }
-    })
-  })
-}
-
 for(const arg of ["core/**/*.json", "base/**/*.json"]) {
   for(const file of glob.sync(arg)) {
     describe(file, function() {
