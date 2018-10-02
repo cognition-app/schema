@@ -5,7 +5,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/Plugin.json"
+      "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json"
     },
     {
       "type": "object",
