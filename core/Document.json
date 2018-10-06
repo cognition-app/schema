@@ -29,7 +29,7 @@
   ],
   "examples": [
     {
-      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json",
+      "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json",
       "name": "Dummy",
       "version": "1.0.0",
       "description": "A pretty useless document",

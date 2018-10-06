@@ -4,17 +4,17 @@
   "description": "Custom constraint on implementations to reference their abstract type.",
   "type": "object",
   "properties": {
-    "$context": {
+    "@type": {
       "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/JSONPointer.json",
       "description": "A reference to the base schema prefix for which this document implements"
     }
   },
   "required": [
-    "$context"
+    "@type"
   ],
   "examples": [
     {
-      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json"
+      "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Document.json"
     }
   ]
 }

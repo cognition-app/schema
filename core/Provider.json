@@ -10,7 +10,7 @@
   ],
   "examples": [
     {
-      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Provider.json",
+      "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Provider.json",
       "name": "Dummy",
       "version": "1.0.0",
       "description": "A provider which doesn't do much beyond show how a provider might work."

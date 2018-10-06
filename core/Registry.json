@@ -39,13 +39,13 @@
   ],
   "examples": [
     {
-      "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Registry.json",
+      "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Registry.json",
       "name": "Dummy Repo",
       "version": "1.0.0",
       "description": "A repo which doesn't do much beyond show how a repo might work.",
       "objects": [
         {
-          "$context": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
+          "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
           "name": "Dummy",
           "version": "1.0.0",
           "description": "An plugin which doesn't do much beyond show how an plugin might work.",
