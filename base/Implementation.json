@@ -7,6 +7,10 @@
     "@type": {
       "$ref": "https://raw.githubusercontent.com/cognition-app/schema/master/base/JSONPointer.json",
       "description": "A reference to the base schema prefix for which this document implements"
+    },
+    "@id": {
+      "type": "string",
+      "description": "A unique identifier for this element"
     }
   },
   "required": [

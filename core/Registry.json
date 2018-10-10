@@ -46,6 +46,7 @@
       "objects": [
         {
           "@type": "https://raw.githubusercontent.com/cognition-app/schema/master/core/Plugin.json",
+          "@id": "dummy",
           "name": "Dummy",
           "version": "1.0.0",
           "description": "An plugin which doesn't do much beyond show how an plugin might work.",
