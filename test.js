@@ -22,33 +22,38 @@ async function validateWithDownload(validator, data, schema) {
   }
 }
 
-for(const arg of ["core/**/*.json", "base/**/*.json"]) {
-  for(const file of glob.sync(arg)) {
-    describe(file, function() {
-      let validator, schema, examples
+async function main(args) {
+  for(const arg of args) {
+    for(const file of glob.sync(arg)) {
+      describe(file, function() {
+        let validator, schema, examples
 
-      before(function() {
-        validator = new ZSchema()
-        schema = JSON.parse(fs.readFileSync(file, 'utf8'))
-        examples = schema['examples']
-      })
+        before(function() {
+          validator = new ZSchema()
+          schema = JSON.parse(fs.readFileSync(file, 'utf8'))
+          examples = schema['examples']
+        })
 
-      it('validates', function() {
-        validator.validateSchema(schema)
-      })
+        it('validates', function() {
+          validator.validateSchema(schema)
+        })
 
-      it('examples validate', async () => {
-        if(examples !== undefined && examples.length >= 1) {
-          for (const example of examples) {
-            assert.equal(
-              await validateWithDownload(validator, example, schema),
-              true
-            )
+        it('examples validate', async () => {
+          if(examples !== undefined && examples.length >= 1) {
+            for (const example of examples) {
+              assert.equal(
+                await validateWithDownload(validator, example, schema),
+                true
+              )
+            }
+          } else {
+            assert.fail('no examples defined')
           }
-        } else {
-          assert.fail('no examples defined')
-        }
+        })
       })
-    })
+    }
   }
 }
+main(
+  process.argv.slice(process.argv.indexOf('--'))
+).then(() => {})

@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha -r @babel/register test.js"
+    "test": "mocha -r @babel/register test.js -- 'core/**/*.json' 'base/**/*.json'"
   },
   "repository": {
     "type": "git",
