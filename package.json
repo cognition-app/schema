@@ -2,11 +2,11 @@
   "name": "cognition-schema",
   "version": "1.0.0",
   "description": "Official schema definitions for cognition elements",
-  "main": "index.js",
   "directories": {
-    "test": "tests"
+    "dist": "dist"
   },
   "scripts": {
+    "prepublish": "babel-node bin/build.js -- 'core/**/*.json' 'base/**/*.json'",
     "test": "mocha -r @babel/register bin/test.js -- 'core/**/*.json' 'base/**/*.json'"
   },
   "repository": {
@@ -26,6 +26,8 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "glob": "^7.1.3",
+    "json-schema-to-typescript": "^6.0.1",
+    "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
     "node-fetch": "^2.2.0",
     "z-schema": "^3.23.0"
