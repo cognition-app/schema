@@ -2,12 +2,10 @@
   "name": "cognition-schema",
   "version": "1.0.0",
   "description": "Official schema definitions for cognition elements",
-  "directories": {
-    "dist": "dist"
-  },
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
-    "prepublish": "babel-node bin/build.js -- 'core/**/*.json' 'base/**/*.json'",
-    "test": "mocha -r @babel/register bin/test.js -- 'core/**/*.json' 'base/**/*.json'"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,28 +18,11 @@
   },
   "homepage": "https://github.com/cognition-app/schema#readme",
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/register": "^7.0.0",
-    "glob": "^7.1.3",
-    "json-schema-to-typescript": "^6.0.1",
-    "mkdirp": "^0.5.1",
-    "mocha": "^5.2.0",
-    "node-fetch": "^2.2.0",
-    "z-schema": "^3.23.0"
+    "tslint": "^5.11.0"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
+  "dependencies": {
+    "@types/pouchdb-browser": "^6.1.2",
+    "@types/react": "^16.4.16",
+    "typescript": "^3.1.3"
   }
 }
