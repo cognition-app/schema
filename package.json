@@ -2,8 +2,7 @@
   "name": "cognition-schema",
   "version": "1.0.0",
   "description": "Official schema definitions for cognition elements",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "types": "dist/**/*.d.ts",
   "scripts": {
     "build": "tsc"
   },
