@@ -5,9 +5,9 @@ import JSONLD from '../../base/json-ld'
  * 
  * TODO: Provide a way to store settings in other databases
  */
-export default interface Registry<T extends JSONLD = JSONLD> extends JSONLD<
-  'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/settings'
-> {
+export default interface Registry<
+  T extends string = 'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/settings'
+> extends JSONLD<T> {
   /**
    * Name of the settings instance
    */

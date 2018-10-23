@@ -1,5 +1,5 @@
 {
-  "name": "cognition-schema",
+  "name": "@cognition-app/schema",
   "version": "1.0.0",
   "description": "Official schema definitions for cognition elements",
   "types": "dist/**/*.d.ts",

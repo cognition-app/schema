@@ -3,9 +3,10 @@ import JSONLD from '../../base/json-ld'
 /**
  * A cognition Plugin providing extra functionality
  */
-export default interface Plugin<T extends JSONLD = JSONLD> extends JSONLD<
-  'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/plugin'
-> {
+export default interface Plugin<
+  C extends JSONLD = JSONLD,
+  T extends string = 'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/plugin',
+> extends JSONLD<T> {
   /**
    * Unique name of the plugin
    */
@@ -29,5 +30,5 @@ export default interface Plugin<T extends JSONLD = JSONLD> extends JSONLD<
   /**
    * Plugin @type-specific definition, type of plugin defined in here
    */
-  cognition: T
+  cognition: C
 }
