@@ -1,13 +1,13 @@
-import JSONLD from '../../../base/json-ld'
+import JSONSchema from '../../../base/json-schema'
 
 /**
  * A Provider plugin for storing/retreiving other documents
  */
 export default interface Provider<
   T extends string = 'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/plugin/provider'
-> extends JSONLD<T> {
+> extends JSONSchema<T> {
   /**
-   * @type of settings expected for the provider
+   * $schema of settings expected for the provider
    */
   settings: string
 }

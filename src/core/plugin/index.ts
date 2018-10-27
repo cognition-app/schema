@@ -1,12 +1,12 @@
-import JSONLD from '../../base/json-ld'
+import JSONSchema from '../../base/json-schema'
 
 /**
  * A cognition Plugin providing extra functionality
  */
 export default interface Plugin<
-  C extends JSONLD = JSONLD,
+  Content extends JSONSchema = JSONSchema,
   T extends string = 'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/plugin',
-> extends JSONLD<T> {
+> extends JSONSchema<T> {
   /**
    * Unique name of the plugin
    */
@@ -28,7 +28,7 @@ export default interface Plugin<
   version: string
 
   /**
-   * Plugin @type-specific definition, type of plugin defined in here
+   * Plugin $schema-specific definition, type of plugin defined in here
    */
-  cognition: C
+  cognition: Content
 }

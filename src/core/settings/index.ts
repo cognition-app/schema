@@ -1,4 +1,4 @@
-import JSONLD from '../../base/json-ld'
+import JSONSchema from '../../base/json-schema'
 
 /**
  * A Settings object
@@ -7,14 +7,14 @@ import JSONLD from '../../base/json-ld'
  */
 export default interface Registry<
   T extends string = 'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/settings'
-> extends JSONLD<T> {
+> extends JSONSchema<T> {
   /**
    * Name of the settings instance
    */
   name: string
 
   /**
-   * Settings @type-specific definition
+   * Settings $schema-specific definition
    */
   content: T
 }

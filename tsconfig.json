@@ -4,7 +4,8 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "declaration": true,
-    "module": "commonjs",
+    "moduleResolution": "node",
+    "module": "umd",
     "target": "es5",
     "lib": [
       "es2015",

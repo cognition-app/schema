@@ -1,10 +1,10 @@
-import JSONLD from '../../base/json-ld'
+import JSONSchema from '../../base/json-schema'
 import Pertinence from '../../base/pertinence'
 
 /**
  * A cognition Document
  */
-export default interface Document<T extends JSONLD = JSONLD> extends JSONLD<
+export default interface Document<T extends JSONSchema = JSONSchema> extends JSONSchema<
   'https://raw.githubusercontent.com/cognition-app/schema/master/dist/core/document'
 > {
   /**
@@ -23,7 +23,7 @@ export default interface Document<T extends JSONLD = JSONLD> extends JSONLD<
   pertinence?: Pertinence
 
   /**
-   * Document @type-specific definition
+   * Document $schema-specific definition
    */
   content: T
 }
